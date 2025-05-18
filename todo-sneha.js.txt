@@ -1,0 +1,28 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const taskTitleInput = document.getElementById("taskTitle");
+    const addTaskButton = document.querySelector("button");
+    const container = document.querySelector("container");
+
+    addTaskButton.addEventListener("click", function() {
+        const taskTitle = taskTitleInput.value.trim();
+        if (taskTitle === "") {
+            alert("Please enter a task title.");
+            return;
+        }
+
+
+        const taskDiv = document.createElement("div");
+        const taskCheckbox = document.createElement("input");
+        const taskLabel = document.createElement("label");
+
+        taskCheckbox.type = "checkbox";
+        taskLabel.textContent = taskTitle;
+
+        taskDiv.appendChild(taskCheckbox);
+        taskDiv.appendChild(taskLabel);
+        container.appendChild(taskDiv);
+
+
+        taskTitleInput.value = "";
+    });
+});
